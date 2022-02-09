@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Product;
 
 class Order extends Model
 {
@@ -18,5 +19,15 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the user product
+     * 
+     * @return [type]
+     */
+    public function product()
+    {
+        return $this->hasOne(Product::class);
     }
 }
