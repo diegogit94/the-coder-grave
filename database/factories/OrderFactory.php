@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use App\Models\Product;
 
 class OrderFactory extends Factory
 {
@@ -14,17 +15,19 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
-        //Obtain a random register from user model
+        //Obtain a random register from user model and the unique product on DB
         $user = User::all()->random();
+        $product = Product::first();
 
         return [
             'customer_name' => $user->name . " " . $user->surname,
             'customer_email' => $user->email,
             'customer_mobile' => $user->mobile,
-            'product' => "USB Big Enter key Table Pillow for Angry Developers",
-            'total' => 500,
+            'product' => $product->name,
+            'total' => $product->price,
             'status' => $this->faker->randomElement(['PAYED', 'FAILED', 'CREATED']),
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'product_id' => $product->id
         ];
     }
 }
