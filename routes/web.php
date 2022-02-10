@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Authentication
+// Authentication routes
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -27,3 +29,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// Product routes
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+
+// Checkout routes
+Route::get('/checkout', [Checkoutcontroller::class, 'index'])->name('checkout.index');
