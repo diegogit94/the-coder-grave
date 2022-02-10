@@ -23,7 +23,6 @@ class OrderFactory extends Factory
             'customer_name' => $user->name . " " . $user->surname,
             'customer_email' => $user->email,
             'customer_mobile' => $user->mobile,
-            'product' => $product->name,
             'total' => $product->price,
             'status' => $this->faker->randomElement(['PAYED', 'FAILED', 'CREATED']),
             'user_id' => $user->id,
