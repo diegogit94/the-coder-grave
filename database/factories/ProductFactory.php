@@ -16,6 +16,7 @@ class ProductFactory extends Factory
         return [
             'name' => 'USB Big Enter key Table Pillow for Angry Developers',
             'description' => 'A big pillow to release all your coder rage',
+            'image' => 'https://55gadgets.com/wp-content/uploads/2018/06/USB-Big-Enter-Key-Table-Pillow.jpg',
             'price' => 500
         ];
     }
