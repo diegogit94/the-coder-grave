@@ -17,6 +17,6 @@ class ProductController extends Controller
     {
         $product = Product::first();
 
-        return view('product.index', compact('product'));
+        return view('product', compact('product'));
     }
 }
