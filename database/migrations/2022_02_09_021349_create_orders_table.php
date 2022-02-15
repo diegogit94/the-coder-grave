@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('customer_mobile', 40);
             $table->integer('total');
             $table->string('status', 20);
+            $table->string('request_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
 
