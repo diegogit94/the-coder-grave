@@ -11,6 +11,10 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $attributes = [
+        'request_id' => 0,
+     ];
+
     /**
      * Get the user that belongs the order
      * 
