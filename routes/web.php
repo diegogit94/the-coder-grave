@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ResumeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,4 @@ Route::get('/checkout', [Checkoutcontroller::class, 'index'])->name('checkout.in
 Route::post('/checkout/{product}', [Checkoutcontroller::class, 'pay'])->name('checkout.pay');
 
 // Order routes
-Route::get('/resume', [ResumeController::class, 'index'])->name('resume.index');
+Route::get('/resume/{reference}', [ResumeController::class, 'index'])->name('resume.index');

@@ -5,6 +5,7 @@ namespace App\Placetopay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Product;
+use App\Models\Order;
 
 /**
  * Class PlaceToPayConnection
@@ -49,12 +50,12 @@ class PlacetopayConnection
      * @return array|mixed
      * @throws \Exception
      */
-    public function createRequest(Request $request, Product $product): array
+    public function createRequest(Request $request, Product $product, Order $order): array
     {
         $response = Http::post(env('P2P_ENDPOINT'), [
             'auth' => $this->authentication(),
             'payment' => [
-                'reference' => $product->id,
+                'reference' => $order->id,
                 'description' => $product->name,
                 'amount' => ['currency' => "USD", 'total' => $product->price]
             ],
@@ -67,7 +68,7 @@ class PlacetopayConnection
                 'mobile' => $request['mobile'],
                 ],
             'expiration' => date('c', strtotime("+15 minutes")),
-            'returnUrl' => route('resume.index', $product->id),
+            'returnUrl' => route('resume.index', $order->id),
             'ipAddress' => request()->ip(),
             'userAgent' => request()->server('HTTP_USER_AGENT')
         ]);
@@ -82,7 +83,7 @@ class PlacetopayConnection
      */
     public function getRequestInformation($requestId): array
     {
-        $response = Http::post(env('P2P_ENDPOINT') . "$requestId", [
+        $response = Http::post(env('P2P_ENDPOINT') . "/$requestId", [
             'auth' => $this->authentication(),
         ]);
 
