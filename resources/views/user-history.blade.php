@@ -60,7 +60,7 @@
                 <div class="tracking-wide text-gray-700 text-center mb-2 row-start-<?php $index + 3 ?>">
                     <tbody>
                         <tr>
-                            <td>{{ $order->product_id }}</td>
+                            <td>{{ $order->product->name }}</td>
                         </tr>
                     </tbody>
                 </div>
@@ -96,6 +96,9 @@
             @endforeach
             {{-- end body --}}
 
+            {{-- pagination --}}
+                {{ $orders->links() }}
+            {{-- end pagination --}}
         </div>
     </div>
 </body>
