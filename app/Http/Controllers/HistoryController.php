@@ -17,9 +17,7 @@ class HistoryController extends Controller
     {
         $id = Auth::user()->id;
 
-        // $user = User::where('id', $id)->first();
-
-        $orders = Order::where('user_id', $id)->get();
+        $orders = Order::where('user_id', $id)->paginate(10);
 
         return view('user-history', compact('orders'));
     }
@@ -31,7 +29,7 @@ class HistoryController extends Controller
      */
     public function admin()
     {
-        $orders = Order::all();
+        $orders = Order::paginate(10);
 
         return view('admin-history', compact('orders'));
     }
