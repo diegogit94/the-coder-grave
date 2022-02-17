@@ -11,6 +11,11 @@ class Order extends Model
 {
     use HasFactory;
 
+    /**
+     * Attributes in DB with default values. 
+     *
+     * @var array<int, string>
+     */
     protected $attributes = [
         'request_id' => 0,
      ];
