@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,8 @@ Route::post('/checkout/{product}', [Checkoutcontroller::class, 'pay'])->name('ch
 
 // Order routes
 Route::get('/resume/{reference}', [ResumeController::class, 'index'])->name('resume.index');
+
+//History routes
+Route::get('/user-history', [HistoryController::class, 'user'])->name('history.user');
+
+Route::get('/admin-history', [HistoryController::class, 'admin'])->name('history.admin');
