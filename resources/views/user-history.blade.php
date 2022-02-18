@@ -88,7 +88,10 @@
                 <div class="tracking-wide text-gray-700 text-center mb-2 row-start-<?php $index + 3 ?>">
                     <tbody>
                         <tr>
-                            <td><button class="button bg-lime-500 hover:bg-lime-400 text-white font-bold py-2 px-4 rounded-full">Reintentar pago</button></td>
+                            <form method="POST" action="{{ route('retry.pay', $order) }}">
+                                @csrf
+                                <td><button class="button bg-lime-500 hover:bg-lime-400 text-white font-bold py-2 px-4 rounded-full">Reintentar pago</button></td>
+                            </form>
                         </tr>
                     </tbody>
                 </div>
