@@ -24,12 +24,12 @@ class CheckoutRequest extends FormRequest
     public function rules()
     {
         return [
-            'first-name' => 'required',
-            'surname' => 'required',
-            'document-type' => 'required',
-            'document' => 'required',
-            'email' => 'required',
-            'mobile' => 'required',
+            'first-name' => 'required|min:2|max:30',
+            'surname' => 'required|min:2|max:30',
+            'document-type' => 'required|min:2|max:30',
+            'document' => 'required|min:2|max:30',
+            'email' => 'required|email:rfc,dns|min:2|max:30',
+            'mobile' => 'required|min:2|max:30',
         ];
     }
 }
