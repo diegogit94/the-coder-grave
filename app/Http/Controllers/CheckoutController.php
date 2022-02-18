@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckoutRequest;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
@@ -34,8 +35,10 @@ class CheckoutController extends Controller
      * 
      * @return [type]
      */
-    public function pay(Request $request, Product $product)
+    public function pay(CheckoutRequest $request, Product $product)
     {
+        $request->validated();
+
         $order = new Order;
 
         $order->customer_name = auth()->user()->name;
