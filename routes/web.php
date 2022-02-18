@@ -8,6 +8,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\RetryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,6 @@ Route::get('/resume/{reference}', [ResumeController::class, 'index'])->name('res
 Route::get('/user-history', [HistoryController::class, 'user'])->name('history.user')->middleware('auth');
 
 Route::get('/admin-history', [HistoryController::class, 'admin'])->name('history.admin')->middleware('auth', 'admin');
+
+// Retry payemnt route
+Route::post('/retry/{order}', [RetryController::class, 'retry'])->name('retry.pay')->middleware('auth');
