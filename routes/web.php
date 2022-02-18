@@ -24,12 +24,6 @@ use App\Http\Controllers\RetryController;
 // Authentication routes
 Auth::routes();
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/', [HomeController::class, 'index'])->name('home');
-
 // Product routes
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 
