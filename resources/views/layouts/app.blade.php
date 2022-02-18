@@ -38,13 +38,13 @@
                     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                     <div class="text-sm lg:flex-grow">
                         @if (Auth::user())
-                            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4">
+                            <a href="{{ route('history.user') }}" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4">
                                 Transacciones
                             </a>
                         @endif
 
                         @if (Auth::user() && Auth::user()['is_admin'])
-                            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4">
+                            <a href="{{ route('history.admin') }}" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4">
                                 Admin
                             </a>
                         @endif
