@@ -25,6 +25,7 @@ class OrderFactory extends Factory
             'customer_mobile' => $user->mobile,
             'total' => $product->price,
             'status' => $this->faker->randomElement(['PAYED', 'FAILED', 'CREATED']),
+            'request_id' => random_int(100000, 999999),
             'user_id' => $user->id,
             'product_id' => $product->id
         ];
