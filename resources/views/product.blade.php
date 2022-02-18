@@ -30,7 +30,11 @@
                                 <td class="border px-4 py-2">¡¡ Puedes tenerla por solo ${{ $product->price }}.00 !!</td>
                             </tr>
                             <tr>
-                                <td class="border px-4 py-2 text-center"><button type="submit" class="button bg-lime-500 hover:bg-lime-400 text-white font-bold py-2 px-4 rounded-full">Comprar</button></td>
+                                @if (Auth::user())
+                                    <td class="border px-4 py-2 text-center"><button type="submit" class="button bg-lime-500 hover:bg-lime-400 text-white font-bold py-2 px-4 rounded-full">Comprar</button></td>
+                                @else
+                                    <td class="border px-4 py-2 text-center font-bold bg-red-500">Por favor, inicia sesión o registrate para realizar una compra.</td>
+                                @endif
                             </tr>
                         </tbody>
                     </table>
