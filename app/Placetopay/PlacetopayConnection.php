@@ -60,12 +60,12 @@ class PlacetopayConnection
                 'amount' => ['currency' => "USD", 'total' => $product->price]
             ],
             'buyer' => [
-                'name' => $request['first-name'],
-                'surname' => $request['surname'],
-                'email' => $request['email'],
+                'name' => $order->customer_name,
+                'surname' => $order->user->surname,
+                'email' => $order->customer_email,
                 'documentType' => $request['document-type'],
                 'document' => $request['document'],
-                'mobile' => $request['mobile'],
+                'mobile' => $order->customer_mobile,
                 ],
             'expiration' => date('c', strtotime("+15 minutes")),
             'returnUrl' => route('resume.index', $order->id),

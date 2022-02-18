@@ -12,8 +12,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="grid grid-cols-3 grid-rows-3 justify-center items-center">
-            <div class="col-start-2 row-start-2 flex flex-col justify-center items-center">
+        <div class="grid grid-cols-3 grid-rows-2 justify-center items-center">
+            <div class="col-start-2 row-start-1 flex flex-col justify-center items-center">
                     <form method="GET" action="{{ route('product.index') }}">
                     <table>
                         <thead>
