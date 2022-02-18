@@ -60,7 +60,7 @@
                 <div class="tracking-wide text-gray-700 text-center mb-2 row-start-<?php $index + 3 ?>">
                     <tbody>
                         <tr>
-                            <td>{{ $order->user->name }}</td>
+                            <td>{{ $order->user->name }} {{ $order->user->surname }}</td>
                         </tr>
                     </tbody>
                 </div>
