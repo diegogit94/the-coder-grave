@@ -37,8 +37,8 @@ class CheckoutController extends Controller
      */
     public function pay(CheckoutRequest $request, Product $product)
     {
-        $request->validate();
-        
+        $request->validated();
+
         $order = new Order;
 
         $order->customer_name = auth()->user()->name;
