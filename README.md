@@ -18,7 +18,7 @@ Hi, this is my project to the Placetopay’s challenge, is a simple store with o
 
 Let’s continue with the DB configuration:
 
-- Go to your DB administrator and create a new DB with this name **the-coder-grave**
+- Go to your DB administrator and create a new DB with this name **the_coder_grave**
 - Enter into .env file and stablish the DB’s username and password on lines 15 and 16 respectively
 - Execute the **php artisan migrate --seed** (Now you can see all your tables with some test info)
 
