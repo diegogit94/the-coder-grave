@@ -45,7 +45,7 @@ class CheckoutController extends Controller
         $order->customer_email = auth()->user()->email;
         $order->customer_mobile = auth()->user()->mobile;
         $order->total = $product->price;
-        $order->status = 'CREATED';
+        $order->status = 'PENDING';
         $order->user_id = auth()->user()->id;
         $order->product_id = $product->id;
         
