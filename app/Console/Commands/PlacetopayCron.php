@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\Order;
+use App\Placetopay\PlacetopayConnection;
+use Illuminate\Support\Facades\Log;
 
 class PlacetopayCron extends Command
 {
@@ -18,7 +21,7 @@ class PlacetopayCron extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Consult if the pending orders has changed';
 
     /**
      * Create a new command instance.
@@ -37,6 +40,24 @@ class PlacetopayCron extends Command
      */
     public function handle()
     {
-        return 0;
+        $pendingOrders = Order::where('status', 'PENDING')->get();
+
+        $connection = new PlacetopayConnection;
+
+        foreach ($pendingOrders as $pendingOrder) {
+            $response = $connection->getRequestInformation($pendingOrder->request_id);
+
+            if ($response['status']['status'] != 'PENDING') {
+
+                $pendingOrder->status = $response['status']['status'];
+
+                $pendingOrder->update();
+
+                $this->info("Order updated correctly"); 
+
+            } else {
+                $this->info("The orders are still pending");
+            }
+        }
     }
 }
