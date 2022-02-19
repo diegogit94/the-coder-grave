@@ -48,6 +48,7 @@
             {{-- end headers --}}
 
             {{-- body --}}
+            @if ($orders)
             <?php $index = 0?>
             @foreach ($orders as $order)
                 <div class="tracking-wide text-gray-700 text-center mb-2 row-start-<?php $index + 3 ?>">
@@ -99,6 +100,9 @@
             {{-- pagination --}}
                 {{ $orders->links() }}
             {{-- end pagination --}}
+            @else
+            
+            @endif
         </div>
     </div>
 </body>
