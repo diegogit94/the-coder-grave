@@ -37,4 +37,4 @@ Now, we’re ready to use the store, but before, let me say some important stuff
 >- To execute the schedule task (SONDA), execute the follow command **php artisan schedule:run**
 >- If you want to execute the cronjob instantly, then, execute php **artisan placetopay:cron**
 
-And that’s all, hope you like <3.
+And that’s all, hope you like it <3.
