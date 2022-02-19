@@ -67,8 +67,8 @@
                             @endif
                         @else
 
-                        <li class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-lime-500 hover:bg-white mt-4 lg:mt-0">
-                            <a class="nav-link" href="#">{{ Auth::user()->name }}</a>
+                        <li class="inline-block text-sm px-4 py-2 text-white border-white mt-4 lg:mt-0">
+                            <a class="nav-link">{{ Auth::user()->name }}</a>
                         </li>
                         <li class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-lime-500 hover:bg-white mt-4 lg:mt-0">
                             <a class="nav-link" href="{{ route('logout') }}"
