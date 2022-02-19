@@ -17,6 +17,7 @@
                 <form method="GET" action="{{ route('checkout.index') }}">
                     <table>
                         <thead>
+                            @if ($product)
                             <th class="border px-4 py-2">{{ $product->name }}</th>
                         </thead>
                         <tbody>
@@ -27,8 +28,11 @@
                                 <td class="border px-4 py-2">¿Te dan ganas golpear algo despues de googlear esos mil errores mientras programas? Esta almohada es para ti ;)</td>
                             </tr>
                             <tr>
-                                <td class="border px-4 py-2">¡¡ Puedes tenerla por solo ${{ $product->price }}.00 !!</td>
+                                <td class="border px-4 py-2">¡¡ Puedes tenerla por solo ${{ $product->price }}.00 USD!!</td>
                             </tr>
+                            @else
+                                <h1 class="text-center font-bold">Ejecuta el comando "php artisan db:seed" ;)</h1>
+                            @endif
                             <tr>
                                 @if (Auth::user())
                                     <td class="border px-4 py-2 text-center"><button type="submit" class="button bg-lime-500 hover:bg-lime-400 text-white font-bold py-2 px-4 rounded-full">Comprar</button></td>

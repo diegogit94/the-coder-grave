@@ -19,23 +19,20 @@ class RetryController extends Controller
         $product = Product::first();
         $retry = new Order;
 
-        $order->id = rand(0, 1000000);
-             
-        $order->update();
-
+        $retry->id = rand(0, 1000000);
         $retry->customer_name = auth()->user()->name;
         $retry->customer_email = auth()->user()->email;
         $retry->customer_mobile = auth()->user()->mobile;
         $retry->total = $order->total;
-        $retry->status = 'RETRY';
+        $retry->status = 'PENDING';
         $retry->user_id = auth()->user()->id;
         $retry->product_id = $order->product_id;
         
         $retry->save();
 
         $connection = new PlacetopayConnection();
-        $response = $connection->createRequest($request, $product, $order);
-        
+        $response = $connection->createRequest($request, $product, $retry);
+
         $retry->request_id = $response['requestId'];
         
         $retry->update();
